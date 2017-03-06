@@ -21,6 +21,14 @@
         </nav>
         <span class="logo"></span>
       </header>
+      <%= if user = MyApp.Auth.current_user(@conn) do %>
+        <%= "Logged in as #{user.email}" %>
+        <a href="/logout">Logout</a>
+      <% else %>
+        <a href="/register">Register</a>
+        <a href="/login">Login</a>
+      <% end %>
+
 
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
       <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>

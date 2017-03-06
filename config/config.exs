@@ -25,3 +25,12 @@ config :logger, :console,
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env}.exs"
+
+config :passport,
+  repo: MyApp.Repo,
+  account_module: MyApp.Account,
+  account_user: MyApp.Account.User,
+  auth_keys: ["email"],
+  auth_module: MyApp.Auth,
+  enabled_auths: [Passport.Password],
+  auth_password: MyApp.Auth.Password
